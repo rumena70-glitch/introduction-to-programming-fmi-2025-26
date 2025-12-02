@@ -17,7 +17,7 @@ bool isPalindrome(const char num[MAX], const int n) {
     return true;
 }
 int main() {
-    unsigned n;
+    unsigned n = 0;
     int k;
     cout << "Number in decimal: ";
     cin >> n;

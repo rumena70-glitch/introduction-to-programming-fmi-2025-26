@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-constexpr int MAX = 10;
+constexpr int MAX = 100;
 bool getKthBitFromRightToLeft(const unsigned num, const int k) {
     return num & (1 << k);
 }

@@ -23,7 +23,7 @@ int main() {
     char num[MAX], num1[MAX];
     cin >> n >> k >> num >> n1 >> k1 >> num1;
     if (fromKthBaseToDecimal(num, n, k) == fromKthBaseToDecimal(num1, n1, k1))
-        cout << "true";
+        {cout << "true";}
     else
         cout << "false";
 }

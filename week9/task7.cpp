@@ -22,5 +22,5 @@ int main() {
             cout << num[i] << endl;//от дясно наляво
     for (int i = 0; i < counter; i++)
         if (i == position)
-            cout << num[i];//от ляво надясно
+            {cout << num[i];}//от ляво надясно
 }

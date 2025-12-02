@@ -27,6 +27,6 @@ int main() {
     fromDecimalToBinary(number, num, counter);
     for (int i = 0; i < counter; i++)
         if (i == pos)
-            number[i] = number[i] == '1' ? '0' : '1';
+            {number[i] = number[i] == '1' ? '0' : '1';}
     cout << fromBinaryToDecimal(number, counter);
 }

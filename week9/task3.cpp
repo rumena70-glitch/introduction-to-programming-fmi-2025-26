@@ -39,5 +39,5 @@ int main() {
     cin >> a >> b;
     fromDecimalToKthBase(res, n, k, fromKthBaseToDecimal(a, n, k) + fromKthBaseToDecimal(b, n, k));
     for (int i = 0; i < n; i++)
-        cout << res[i];
+        {cout << res[i];}
 }

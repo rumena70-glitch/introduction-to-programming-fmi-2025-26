@@ -30,6 +30,6 @@ int main() {
     for (int i = 0; i < counter; i++)
         if (i == starPos + 1)
             for (int j = i; j < n + i; j++)
-                new_number[new_counter++] = number[j];
+                {new_number[new_counter++] = number[j];}
     cout << fromBinaryToDecimal(new_number, new_counter);
 }
