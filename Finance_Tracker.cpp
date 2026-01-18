@@ -1,106 +1,168 @@
 #include <iostream>
 using namespace std;
 
+int numLen(int n) {
+    int counter = 0;
+    while (n) {
+        n /= 10;
+        counter++;
+    }
+    return counter;
+}
+int longestNum(const int arr[], const int n) {
+    if (arr == nullptr) {
+        return 0;
+    }
+    int longest = numLen((int)arr[0]);
+    for (int i = 1; i < n; i++) {
+        const int temp = numLen((int)arr[i]);
+        if (temp > longest) {
+            longest = temp;
+        }
+    }
+    return longest;
+}
 size_t strlen(const char arr[]) {
     size_t counter = 0;
     while (arr[counter++]);
     return counter - 1;
 }
 char otherCase(const char c) {
-    if ('a' <= c && c <= 'z')
+    if ('a' <= c && c <= 'z') {
         return c - 'a' + 'A';
-    if ('A' <= c && c <= 'Z')
+    }
+    if ('A' <= c && c <= 'Z') {
         return c - 'A' + 'a';
+    }
     return c;
 }
 bool equalsIgnoreCase(const char arr[], const char arr1[]) {
     const size_t len1 = strlen(arr), len2 = strlen(arr1);
-    if (len1 != len2)
+    if (len1 != len2) {
         return false;
-    for (size_t i = 0; i < len1; i++)
-        if (arr[i] != arr1[i] && arr[i] != otherCase(arr1[i]))
+    }
+    for (size_t i = 0; i < len1; i++) {
+        if (arr[i] != arr1[i] && arr[i] != otherCase(arr1[i])) {
             return false;
+        }
+    }
     return true;
 }
 const char* monthStr(const int month) {
-    if (month == 1)
+    if (month == 1) {
         return "January";
-    if (month == 2)
+    }
+    if (month == 2) {
         return "February";
-    if (month == 3)
+    }
+    if (month == 3) {
         return "March";
-    if (month == 4)
+    }
+    if (month == 4) {
         return "April";
-    if (month == 5)
+    }
+    if (month == 5) {
         return "May";
-    if (month == 6)
+    }
+    if (month == 6) {
         return "June";
-    if (month == 7)
+    }
+    if (month == 7) {
         return "July";
-    if (month == 8)
+    }
+    if (month == 8) {
         return "August";
-    if (month == 9)
+    }
+    if (month == 9) {
         return "September";
-    if (month == 10)
+    }
+    if (month == 10) {
         return "October";
-    if (month == 11)
+    }
+    if (month == 11) {
         return "November";
-    if (month == 12)
+    }
+    if (month == 12) {
         return "December";
+    }
     return nullptr;
 }
 const char* monthShortStr(const int month) {
-    if (month == 1)
+    if (month == 1) {
         return "Jan";
-    if (month == 2)
+    }
+    if (month == 2) {
         return "Feb";
-    if (month == 3)
+    }
+    if (month == 3) {
         return "Mar";
-    if (month == 4)
+    }
+    if (month == 4) {
         return "Apr";
-    if (month == 5)
+    }
+    if (month == 5) {
         return "May";
-    if (month == 6)
+    }
+    if (month == 6) {
         return "Jun";
-    if (month == 7)
+    }
+    if (month == 7) {
         return "Jul";
-    if (month == 8)
+    }
+    if (month == 8) {
         return "Aug";
-    if (month == 9)
+    }
+    if (month == 9) {
         return "Sep";
-    if (month == 10)
+    }
+    if (month == 10) {
         return "Oct";
-    if (month == 11)
+    }
+    if (month == 11) {
         return "Nov";
-    if (month == 12)
+    }
+    if (month == 12) {
         return "Dec";
+    }
     return nullptr;
 }
 int monthNumber(const char arr[]) {
-    if (equalsIgnoreCase(arr, "January"))
+    if (equalsIgnoreCase(arr, "January")) {
         return 1;
-    if (equalsIgnoreCase(arr, "February"))
+    }
+    if (equalsIgnoreCase(arr, "February")) {
         return 2;
-    if (equalsIgnoreCase(arr, "March"))
+    }
+    if (equalsIgnoreCase(arr, "March")) {
         return 3;
-    if (equalsIgnoreCase(arr, "April"))
+    }
+    if (equalsIgnoreCase(arr, "April")) {
         return 4;
-    if (equalsIgnoreCase(arr, "May"))
+    }
+    if (equalsIgnoreCase(arr, "May")) {
         return 5;
-    if (equalsIgnoreCase(arr, "June"))
+    }
+    if (equalsIgnoreCase(arr, "June")) {
         return 6;
-    if (equalsIgnoreCase(arr, "July"))
+    }
+    if (equalsIgnoreCase(arr, "July")) {
         return 7;
-    if (equalsIgnoreCase(arr, "August"))
+    }
+    if (equalsIgnoreCase(arr, "August")) {
         return 8;
-    if (equalsIgnoreCase(arr, "September"))
+    }
+    if (equalsIgnoreCase(arr, "September")) {
         return 9;
-    if (equalsIgnoreCase(arr, "October"))
+    }
+    if (equalsIgnoreCase(arr, "October")) {
         return 10;
-    if (equalsIgnoreCase(arr, "November"))
+    }
+    if (equalsIgnoreCase(arr, "November")) {
         return 11;
-    if (equalsIgnoreCase(arr, "December"))
+    }
+    if (equalsIgnoreCase(arr, "December")) {
         return 12;
+    }
     return 0;
 }
 int search(const int* monthArray, const int n, const int month) {
@@ -160,8 +222,9 @@ void selectionSort(int* first, double* second, double* third, double* last, cons
     }
 }
 double min(const double* arr, const int n) {
-    if (arr == nullptr)
+    if (arr == nullptr) {
         return 0;
+    }
     double min = arr[0];
     for (int i = 1; i < n; i++) {
         if (arr[i] < min) {
@@ -171,8 +234,9 @@ double min(const double* arr, const int n) {
     return min;
 }
 double max(const double* arr, const int n) {
-    if (arr == nullptr)
+    if (arr == nullptr) {
         return 0;
+    }
     double max = arr[0];
     for (int i = 1; i < n; i++) {
         if (arr[i] > max) {
@@ -443,16 +507,27 @@ int main() {
             const double low = min(incomeArray, counterAddedMonths) < min(expenseArray, counterAddedMonths) ? min(incomeArray, counterAddedMonths) : min(expenseArray, counterAddedMonths);
             double high = max(incomeArray, counterAddedMonths) < max(expenseArray, counterAddedMonths) ? max(expenseArray, counterAddedMonths) : max(incomeArray, counterAddedMonths);
             const double diff = (high - low) / 4;
-            for (int i = 0; i < 5; i++) {
-                cout << (int)high << " | ";
+            const int incrementCount = 5;
+            int increments[incrementCount];
+            for (int i = 0; i < incrementCount; i++) {
+                increments[i] = (int)high;
+                high -= diff;
+            }
+            const int longestNumber = longestNum(increments, incrementCount);
+            for (int i = 0; i < incrementCount; i++) {
+                cout << increments[i];
+                for (int k = 0; k < longestNumber - numLen(increments[i]); k++) {
+                    cout << " ";
+                }
+                cout << " | ";
                 for (int j = 0; j < counterAddedMonths; j++) {
-                    if (incomeArray[j] >= (int)high) {
+                    if (incomeArray[j] >= increments[i]) {
                         cout << "+ ";
                     }
                     else {
                         cout << "  ";
                     }
-                    if (expenseArray[j] >= (int)high) {
+                    if (expenseArray[j] >= increments[i]) {
                         cout << "-   ";
                     }
                     else {
@@ -460,10 +535,11 @@ int main() {
                     }
                 }
                 cout << endl;
-                high -= diff;
             }
-            cout << "      ";
-            for (int i = 0; i < counterAddedMonths * 6; i++) {
+            for (int i = 0; i < longestNumber + 2; i++) {
+                cout << " ";
+            }
+            for (int i = 0; i < counterAddedMonths * 6 - 1; i++) {
                 cout << "-";
             }
             cout << endl;
