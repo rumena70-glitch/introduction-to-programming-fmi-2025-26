@@ -1,7 +1,26 @@
+/**
+*
+* Solution to course project # 3
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2025/2026
+*
+* @author Rumen Anastasov
+* @idnumber 8MI0600680
+* @compiler CLion
+*
+* <file with main and additional functions>
+*
+*/
 #include <iostream>
 using namespace std;
 
+constexpr int MAX_ENTRY_SIZE = 1024;
+constexpr  int incrementCount = 5;
 int numLen(int n) {
+    if (n == 0) {
+        return 1;
+    }
     int counter = 0;
     while (n) {
         n /= 10;
@@ -188,17 +207,17 @@ void selectionSortDesc(double* first, double* second, double* third, int* last, 
         return;
     }
     for (int i = 0; i < size; i++) {
-        int minIndex = i;
+        int maxIndex = i;
         for (int j = i + 1; j < size; j++) {
-            if (first[j] > first[minIndex]) {
-                minIndex = j;
+            if (first[j] > first[maxIndex]) {
+                maxIndex = j;
             }
         }
-        if (i != minIndex) {
-            swap(first[i], first[minIndex]);
-            swap(second[i], second[minIndex]);
-            swap(third[i], third[minIndex]);
-            swap(last[i], last[minIndex]);
+        if (i != maxIndex) {
+            swap(first[i], first[maxIndex]);
+            swap(second[i], second[maxIndex]);
+            swap(third[i], third[maxIndex]);
+            swap(last[i], last[maxIndex]);
         }
     }
 }
@@ -246,7 +265,7 @@ double max(const double* arr, const int n) {
     return max;
 }
 int main() {
-    char command[9];
+    char command[MAX_ENTRY_SIZE];
     int numberOfMonths = 0;
     bool setup = false;
     int* monthsArray = nullptr;
@@ -380,7 +399,7 @@ int main() {
                 cout << "Not set up!" << endl;
                 continue;
             }
-            char monthName[10];
+            char monthName[MAX_ENTRY_SIZE];
             cin >> monthName;
             const int currentMonth = monthNumber(monthName);
             if (currentMonth == 0) {
@@ -402,7 +421,7 @@ int main() {
                 cout << balanceArray[indexOfMonth] << endl;
             }
             if (incomeArray[indexOfMonth] == 0) {
-                cout << "N/A expense ratio (no income)!";
+                cout << "N/A expense ratio (no income)!" << endl;
             }
             else {
                 const double expenseRatio = 100 * expenseArray[indexOfMonth] / incomeArray[indexOfMonth];
@@ -483,7 +502,7 @@ int main() {
                     for (int i = 1; i <= period; i++) {
                         savings += average_monthly_change;
                         if (savings + average_monthly_change < 0) {
-                            cout << i << " months";
+                            cout << i << " months" << endl;
                             break;
                         }
                     }
@@ -507,7 +526,6 @@ int main() {
             const double low = min(incomeArray, counterAddedMonths) < min(expenseArray, counterAddedMonths) ? min(incomeArray, counterAddedMonths) : min(expenseArray, counterAddedMonths);
             double high = max(incomeArray, counterAddedMonths) < max(expenseArray, counterAddedMonths) ? max(expenseArray, counterAddedMonths) : max(incomeArray, counterAddedMonths);
             const double diff = (high - low) / 4;
-            const int incrementCount = 5;
             int increments[incrementCount];
             for (int i = 0; i < incrementCount; i++) {
                 increments[i] = (int)high;
@@ -553,7 +571,6 @@ int main() {
             cout << "(-) = Expense" << endl;
         }
     }
-    //форкаст и чарт
     delete[] monthsArray;
     delete[] incomeArray;
     delete[] expenseArray;
